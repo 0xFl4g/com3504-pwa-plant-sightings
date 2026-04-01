@@ -1,0 +1,63 @@
+<div class="container">
+    <div class="row mb-4">
+        <div class="col-12">
+            <h1 class="text-center">View Plant Sightings</h1>
+        </div>
+    </div>
+
+    <form id="searchForm" class="row mb-4 g-3">
+        <!-- Search Input -->
+        <div class="col-12 col-md-6">
+            <input type="text" class="form-control" id="searchInput"
+                   placeholder="Search by identification or username">
+        </div>
+
+        <!-- Sort Select Dropdown -->
+        <div class="col-6 col-md-4">
+            <select class="form-select" id="sortSelect">
+                <option value="newest">Date: Newest First</option>
+                <option value="oldest">Date: Oldest First</option>
+                <option value="nearest">Distance: Nearest First</option>
+                <option value="farthest">Distance: Farthest First</option>
+            </select>
+        </div>
+
+        <!-- Apply Button -->
+        <div class="col-6 col-md-2">
+            <button type="submit" class="btn btn-primary w-100">Apply</button>
+        </div>
+
+        <!-- Filter Checkboxes -->
+        <div class="col-6 col-md-3 d-flex align-items-center">
+            <div class="form-check w-100">
+                <input class="form-check-input" type="checkbox" id="myUploadsOnly">
+                <label class="form-check-label ms-2" for="myUploadsOnly">Show My Uploads Only</label>
+            </div>
+        </div>
+        <div class="col-6 col-md-3 d-flex align-items-center">
+            <div class="form-check w-100">
+                <input class="form-check-input" type="checkbox" id="hasFlowers">
+                <label class="form-check-label ms-2" for="hasFlowers">Has Flowers</label>
+            </div>
+        </div>
+        <div class="col-6 col-md-3 d-flex align-items-center">
+            <div class="form-check w-100">
+                <input class="form-check-input" type="checkbox" id="hasLeaves">
+                <label class="form-check-label ms-2" for="hasLeaves">Has Leaves</label>
+            </div>
+        </div>
+        <div class="col-6 col-md-3 d-flex align-items-center">
+            <div class="form-check w-100">
+                <input class="form-check-input" type="checkbox" id="hasFruitsOrSeeds">
+                <label class="form-check-label ms-2" for="hasFruitsOrSeeds">Has Fruits/Seeds</label>
+            </div>
+        </div>
+    </form>
+
+    <!-- Container for dynamically loaded plant sightings -->
+    <div id="sightingsContainer" class="row">
+        <!-- Dynamic plant sightings will be loaded here by home.js -->
+    </div>
+</div>
+
+<script type="module" src="/javascripts/home.js"></script>

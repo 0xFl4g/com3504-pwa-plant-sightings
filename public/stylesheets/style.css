@@ -1,0 +1,102 @@
+:root {
+    --primary-color: #14A44D;
+    --primary-hover-color: #009688;
+    --primary-active-color: #00665c;
+    --secondary-color: #007bff;
+    --light-text: #fff;
+    --dark-text: #333;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background: #e0f2f1;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-size: 1.15rem;
+}
+
+.content {
+    flex: 1;
+    padding: 1rem 10%; /* Adjust the padding value as needed */
+}
+
+.navbar {
+    padding: 1rem 10%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    font-size: 1.25rem;
+}
+
+.navbar-brand {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.navbar-nav .nav-link {
+    color: var(--dark-text);
+    transition: color 0.5s;
+}
+
+.navbar-nav .nav-link:hover {
+    color: var(--primary-hover-color);
+}
+
+.navbar-nav .nav-link.active {
+    color: var(--primary-active-color);
+}
+
+.footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--primary-color);
+    color: var(--light-text);
+    padding: 0.25rem;
+    text-align: center;
+    margin-top: auto;
+    font-weight: bold;
+}
+
+.card-header {
+    background-color: var(--primary-color);
+    color: var(--light-text);
+}
+
+.comments-section {
+    max-height: 400px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #888 #f1f1f1;
+}
+
+.comments-section::-webkit-scrollbar {
+    width: 12px;
+}
+
+.comments-section::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.comments-section::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+.comments-section::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.form-check-label {
+    margin-left: 1rem;
+}
+
+img.img-fluid {
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+#offline-message-container {
+    text-align: center;
+}

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Offline</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e0f2f1; /* Light green background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 50vh;
+            margin: 0;
+            padding: 0;
+        }
+
+        .offline-container {
+            text-align: center;
+            background-color: #ffffff;
+            border: 1px solid #cccccc;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 90%;
+        }
+
+        .offline-container h1 {
+            font-size: 2.5em;
+            color: #333333;
+            margin-bottom: 20px;
+        }
+
+        .offline-container p {
+            font-size: 1.2em;
+            color: #666666;
+        }
+
+        @media (max-width: 600px) {
+            .offline-container h1 {
+                font-size: 2em;
+            }
+
+            .offline-container p {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="offline-container">
+    <h1>You are offline</h1>
+    <p>Sorry, it looks like you are not connected to the internet. Please check your connection and try again.</p>
+</div>
+</body>
+</html>

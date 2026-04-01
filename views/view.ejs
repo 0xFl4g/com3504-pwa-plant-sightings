@@ -1,0 +1,143 @@
+<div class="container">
+    <!-- Page Title -->
+    <div class="row mb-4">
+        <div class="col-12 text-center">
+            <h1 id="sighting-title"></h1>
+            <h5 id="sighting-label"></h5>
+        </div>
+    </div>
+
+    <!-- Map Section -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="card" id="map-card">
+                <div class="card-header text-center">
+                    <h4>Map</h4>
+                </div>
+                <div class="card-body p-0">
+                    <div id="map" class="rounded" style="height: 400px;"></div>
+                    <div id="map-message" class="p-3 text-center text-muted"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- User Photo and Details Section -->
+    <div class="row mb-4">
+        <div class="col-12 col-md-6 mb-4">
+            <div class="card h-100">
+                <div class="card-header text-center">
+                    <h4>Plant Photo</h4>
+                </div>
+                <div class="card-body text-center">
+                    <img id="photo" src="" class="img-fluid rounded" alt="Plant photo">
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 mb-4">
+            <div class="card h-100">
+                <div class="card-header text-center">
+                    <h4>Details</h4>
+                </div>
+                <div class="card-body">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><strong>Username:</strong> <span id="username"></span></li>
+                        <li class="list-group-item"><strong>Date:</strong> <span id="date"></span></li>
+                        <li class="list-group-item"><strong>Coordinates:</strong> <span id="location"></span></li>
+                        <li class="list-group-item"><strong>Location Name:</strong> <span id="address"></span></li>
+                        <li class="list-group-item"><strong>Distance:</strong> <span id="distance"></span></li>
+                        <li id="identificationItem" class="list-group-item">
+                            <strong>Identification:</strong>
+                            <span id="identification"></span>
+                            <button id="editIdentificationButton" class="btn btn-primary btn-sm d-none"
+                                    data-bs-toggle="modal" data-bs-target="#identificationModal">Edit
+                            </button>
+                        </li>
+                        <li class="list-group-item"><strong>Has Flowers:</strong> <span id="has_flowers"></span></li>
+                        <li class="list-group-item"><strong>Has Leaves:</strong> <span id="has_leaves"></span></li>
+                        <li class="list-group-item"><strong>Has Fruits or Seeds:</strong> <span
+                                    id="has_fruits_or_seeds"></span></li>
+                        <li class="list-group-item"><strong>Additional Information:</strong><br><span
+                                    id="additional_information"></span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- DBpedia Section -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header text-center">
+                    <h4>DBpedia Photo and Abstract</h4>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-12 mb-4 text-center">
+                            <p id="dbpedia-message" class="text-muted"></p>
+                        </div>
+                        <div class="col-12 col-md-4 mb-4 text-center">
+                            <img id="dbpedia-photo" class="img-fluid rounded mb-3" alt="DBpedia Photo" src="">
+                        </div>
+                        <div class="col-12 col-md-8 mb-4">
+                            <p id="dbpedia-abstract" class="text-justify"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Comments Section -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header text-center">
+                    <h4>Comments</h4>
+                </div>
+                <div class="card-body">
+                    <div class="comments-section" style="max-height: 400px; overflow-y: auto;">
+                        <p class="text-muted no-comments">No comments available.</p>
+                    </div>
+                    <form class="comment-form mt-4" id="comment-form">
+                        <div class="mb-3">
+                            <label for="comment" class="form-label">Add a comment:</label>
+                            <textarea class="form-control" id="comment" rows="3"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary d-none" id="comment_button">Comment</button>
+                        <button type="button" class="btn btn-primary d-none" id="login_button">Login to Comment</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Identification -->
+    <div class="modal fade" id="identificationModal" tabindex="-1" aria-labelledby="identificationModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="identificationModalLabel">Edit Identification</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="identificationForm">
+                        <div class="mb-3">
+                            <label for="newIdentification" class="form-label">New Identification</label>
+                            <input type="text" class="form-control" id="newIdentification" list="plantNames" required>
+                            <datalist id="plantNames"></datalist>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Save</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+<script type="module" src="/javascripts/viewSighting.js"></script>

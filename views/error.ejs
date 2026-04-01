@@ -1,0 +1,13 @@
+<div class="error-container">
+    <h1>Ooops, something went wrong!</h1>
+    <h2>Error <%= error.status; %>: <%= message; %></h2>
+
+    <% if (process.env.NODE_ENV === 'development') { %>
+        <h3>Details:</h3>
+        <pre><%= error.stack; %></pre>
+    <% } %>
+
+    <p>Sorry for the inconvenience. Please try refreshing the page, or <a href="/" class="btn btn-link p-0"
+                                                                          style="vertical-align: baseline;">return
+            to the homepage</a>.</p>
+</div>

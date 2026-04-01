@@ -1,0 +1,163 @@
+<div class="card shadow-sm">
+    <div class="card-header bg-success text-white text-center">
+        <h1>Submit Plant Sighting</h1>
+    </div>
+    <div class="card-body">
+        <form id="sighting-form" action="/api/plant-sightings/submit" method="post" enctype="multipart/form-data">
+            <input type="hidden" id="username" name="username">
+
+            <!-- Location Input Method -->
+            <div class="form-group mb-4">
+                <fieldset class="mb-3">
+                    <legend class="mb-2">Location Input Method</legend>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="location_input_method" id="mapOption"
+                               value="map" required>
+                        <label class="form-check-label" for="mapOption">Map</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="location_input_method" id="manualOption"
+                               value="manual" required>
+                        <label class="form-check-label" for="manualOption">Manual Entry</label>
+                    </div>
+                </fieldset>
+
+                <!-- Map Coordinates Input -->
+                <div id="mapCoordinatesDiv" class="mb-3" style="display: none;">
+                    <label for="mapCoordinates" class="form-label">Selected Coordinates:</label>
+                    <input type="text" class="form-control" id="mapCoordinates" name="locationCoordinate" readonly>
+                </div>
+
+                <!-- Map Display -->
+                <div id="mapDiv" class="border rounded mb-3" style="height: 400px; display: none;"></div>
+                <div id="fetch-location-div" class="text-center mt-3 mb-3" style="display: none;">
+                    <button type="button" id="fetch-location" class="btn btn-success">Use My Current Location</button>
+                </div>
+
+                <!-- Manual Location Input -->
+                <div id="manualLocationDiv" class="mb-3" style="display: none;">
+                    <label for="manualLocation" class="form-label">Location Name:</label>
+                    <input type="text" class="form-control" id="manualLocation" name="locationName"
+                           placeholder="Enter location name">
+                </div>
+            </div>
+
+            <hr>
+
+            <!-- Identification Input -->
+            <div class="form-group mb-4">
+                <legend class="mb-2">Identification</legend>
+                <input type="text" class="form-control" id="identification" list="plantNames" name="identification"
+                       required>
+                <datalist id="plantNames">
+                    <!-- Options will be populated by JavaScript -->
+                </datalist>
+            </div>
+
+            <hr>
+
+            <!-- Plant Characteristics -->
+            <fieldset class="mb-4">
+                <legend class="mb-2">Plant Characteristics</legend>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group mb-3">
+                            <label class="form-label">Does the plant have flowers?</label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="hasFlowers" id="flowers_yes"
+                                       value="true" required>
+                                <label class="form-check-label" for="flowers_yes">Yes</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="hasFlowers" id="flowers_no"
+                                       value="false" required>
+                                <label class="form-check-label" for="flowers_no">No</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="form-group mb-3">
+                            <label class="form-label">Does the plant have leaves?</label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="hasLeaves" id="leaves_yes"
+                                       value="true" required>
+                                <label class="form-check-label" for="leaves_yes">Yes</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="hasLeaves" id="leaves_no"
+                                       value="false" required>
+                                <label class="form-check-label" for="leaves_no">No</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="form-group mb-3">
+                            <label class="form-label">Does the plant have fruits or seeds?</label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="hasFruitsOrSeeds"
+                                       id="fruits_seeds_yes" value="true" required>
+                                <label class="form-check-label" for="fruits_seeds_yes">Yes</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="hasFruitsOrSeeds"
+                                       id="fruits_seeds_no" value="false" required>
+                                <label class="form-check-label" for="fruits_seeds_no">No</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+
+            <hr>
+
+            <!-- Photo Input Method -->
+            <fieldset class="mb-4">
+                <legend class="mb-2">Photo Input Method</legend>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="photo_input_method" id="urlOption" value="url"
+                           required>
+                    <label class="form-check-label" for="urlOption">URL</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="photo_input_method" id="fileOption" value="file"
+                           required>
+                    <label class="form-check-label" for="fileOption">File Upload</label>
+                </div>
+            </fieldset>
+
+            <!-- Photo Input Fields -->
+            <div class="row">
+                <div id="photo_url" class="col-md-6 mb-3" style="display: none;">
+                    <label for="url" class="form-label">Photo URL:</label>
+                    <input type="text" class="form-control" id="url" name="photo" placeholder="Enter image URL">
+                </div>
+                <div id="photo_file" class="col-md-6 mb-3" style="display: none;">
+                    <label for="file" class="form-label">Photo:</label>
+                    <input type="file" class="form-control" id="file" name="photo"
+                           accept="image/jpeg, image/png, image/gif" capture="environment">
+                </div>
+            </div>
+
+            <hr>
+
+            <!-- Additional Information -->
+            <div class="form-group mb-4">
+                <legend class="mb-2">Additional Information</legend>
+                <textarea class="form-control" id="additional_info" name="additionalInformation" rows="4"></textarea>
+            </div>
+
+            <hr>
+
+            <!-- Submit Button -->
+            <div class="text-center mt-4">
+                <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin=""/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+<script type="module" src="/javascripts/submitSighting.js"></script>
