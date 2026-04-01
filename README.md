@@ -40,6 +40,14 @@ bun start              # or: bun dev (with auto-reload)
 
 Open http://localhost:3000.
 
+### With Docker
+
+```bash
+docker compose up --build
+```
+
+This starts the app and MongoDB together — no local setup needed.
+
 ## Environment Variables
 
 See [`.env.example`](.env.example) for all available options.
