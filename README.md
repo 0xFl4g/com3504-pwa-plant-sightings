@@ -31,8 +31,8 @@ A Progressive Web App for recording and sharing plant sightings. Submit observat
 ## Setup
 
 ```bash
-git clone https://github.com/0xFl4g/com3504-intelligent-web-plant-sightings.git
-cd com3504-intelligent-web-plant-sightings
+git clone https://github.com/0xFl4g/com3504-pwa-plant-sightings.git
+cd com3504-pwa-plant-sightings
 cp .env.example .env   # edit as needed
 bun install
 bun start              # or: bun dev (with auto-reload)
