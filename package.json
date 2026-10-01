@@ -19,6 +19,7 @@
     "swagger-jsdoc": "^6.3.0",
     "swagger-ui-express": "^5.0.1"
   },
+  "packageManager": "bun@1.4.2",
   "private": true,
   "scripts": {
     "start": "bun ./bin/www",
