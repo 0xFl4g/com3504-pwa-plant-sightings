@@ -6,5 +6,6 @@ RUN bun install --frozen-lockfile --production
 
 COPY . .
 
+USER 1000:1000
 EXPOSE 3000
 CMD ["bun", "start"]
