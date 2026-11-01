@@ -4,16 +4,16 @@
   "dependencies": {
     "bootstrap": "^5.3.8",
     "cookie-parser": "~1.4.7",
-    "ejs": "^6.0.1",
+    "ejs": "^7.0.2",
     "express": "5",
     "express-ejs-layouts": "^2.5.1",
-    "express-rate-limit": "^8.7.0",
+    "express-rate-limit": "^8.7.1",
     "fetch-sparql-endpoint": "^7.3.0",
     "helmet": "^8.3.0",
     "http-errors": "^2.0.1",
     "leaflet": "^1.9.4",
-    "mongoose": "^9.10.3",
-    "pino": "^10.3.1",
+    "mongoose": "^9.11.4",
+    "pino": "^10.4.0",
     "pino-http": "^11.0.0",
     "socket.io": "^4.8.4",
     "swagger-jsdoc": "^6.3.0",
@@ -29,7 +29,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
-    "eslint": "^10.11.0",
+    "eslint": "^10.13.0",
     "globals": "^17.13.0"
   }
 }
